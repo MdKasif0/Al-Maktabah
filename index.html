@@ -1,0 +1,274 @@
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Read different types of islamic books for free.">
+    <meta name="keywords" content="books, AI, reading, app, book reading app, islamic, islamic book reading, islam">
+    <title>Al-Maktabah - Islamic Book reading app.</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Al-Maktabah",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1000"
+      }
+    }
+    </script>
+    </head>
+<body>
+    <!-- Main Page -->
+    <div id="main-page" class="app-container">
+        <header class="main-header">
+            <div class="header-content">
+                <h1 class="fade-in">Al-Maktabah</h1>
+                <p class="subtitle slide-in">Search and find your book</p>
+            </div>
+            <div class="profile-icon scale-in">
+                <video loop autoplay muted src="logo.mp4" class="avatar"></video>
+            </div>
+        </header>
+
+        <div class="search-container fade-in">
+            <input type="text" class="search-input" placeholder="Search books...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <!-- Continue Reading Section -->
+        <section class="continue-reading-section fade-in">
+            <h2 class="section-title">Continue Reading</h2>
+            <div class="reading-list">
+                <!-- Reading items will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <nav class="tabs slide-in">
+            <button class="tab-btn active" data-tab="popular">Popular</button>
+            <button class="tab-btn" data-tab="newest">Newest</button>
+            <button class="tab-btn" data-tab="bestsellers">Bestsellers</button>
+            <button class="tab-btn" data-tab="trending">Trending</button>
+        </nav>
+
+        <div class="book-grid fade-in-up">
+            <!-- Books will be dynamically inserted here -->
+        </div>
+
+        <nav class="bottom-nav slide-in-up">
+            <button class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </button>
+            <button class="nav-item">
+                <i class="fas fa-compass"></i>
+                <span>Explore</span>
+            </button>
+            <button class="nav-item">
+                <i class="fas fa-bookmark"></i>
+                <span>Library</span>
+            </button>
+            <button class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </button>
+        </nav>
+
+        <button class="theme-toggle pulse">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <!-- Book Details Page -->
+    <div id="book-details-page" class="page hidden">
+        <div class="book-details-header">
+            <button class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <h2>Book Details</h2>
+            <button class="bookmark-btn">
+                <i class="far fa-bookmark"></i>
+            </button>
+        </div>
+
+        <div class="book-details-content">
+            <div class="book-cover-wrapper">
+                <img src="" alt="Book Cover" class="book-cover-large">
+                <div class="book-info-overlay">
+                    <h1 class="book-title"></h1>
+                    <p class="book-author"></p>
+                    <div class="book-stats">
+                        <div class="stat-item">
+                            <span class="stat-value reads">0</span>
+                            <span class="stat-label">READS</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value likes">0</span>
+                            <span class="stat-label">LIKES</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value episodes">0</span>
+                            <span class="stat-label">EPISODES</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-description">
+                <h3>About <span class="book-title"></span></h3>
+                <p class="description-text"></p>
+            </div>
+
+            <div class="book-actions">
+                <button class="preview-btn">Preview</button>
+                <button class="read-btn">Read Book</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF Reader Page -->
+    <div id="pdf-reader-page" class="page hidden">
+        <div class="reader-header slide-in">
+            <div class="reader-header-left">
+                <button class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h3 class="book-title"></h3>
+            </div>
+            <div class="reader-controls">
+                <button id="thumbnails-toggle" class="control-btn">
+                    <i class="fas fa-th-large"></i>
+                </button>
+                <button id="settings-toggle" class="control-btn">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="reader-container">
+            <div class="thumbnails-panel">
+                <div class="thumbnails-content">
+                    <!-- Thumbnails will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <div class="pdf-main-content">
+                <div class="pdf-controls fade-in">
+                    <div class="navigation-controls">
+                        <button id="prev" class="nav-btn">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="page-navigation">
+                            <input type="number" id="current-page" min="1" value="1">
+                            <span>of</span>
+                            <span id="page-count">0</span>
+                        </div>
+                        <button id="next" class="nav-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="zoom-controls">
+                        <button id="zoom-out" class="zoom-btn">
+                            <i class="fas fa-search-minus"></i>
+                        </button>
+                        <select id="zoom-select" class="zoom-select">
+                            <option value="0.5">50%</option>
+                            <option value="0.75">75%</option>
+                            <option value="1" selected>100%</option>
+                            <option value="1.25">125%</option>
+                            <option value="1.5">150%</option>
+                            <option value="2">200%</option>
+                            <option value="auto">Fit to Width</option>
+                        </select>
+                        <button id="zoom-in" class="zoom-btn">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="pdf-viewer" class="pdf-viewer"></div>
+
+                <div class="page-slider-container slide-in">
+                    <input type="range" id="page-slider" class="page-slider" min="1" value="1">
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced PDF Settings Panel -->
+        <div class="pdf-settings-panel">
+            <div class="settings-header">
+                <h3>Reading Settings</h3>
+                <button class="close-settings">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="settings-content">
+                <div class="settings-section">
+                    <h4>Display</h4>
+                    <div class="setting-item">
+                        <span>Night Mode</span>
+                        <label class="switch">
+                            <input type="checkbox" id="night-mode-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <span>Page Layout</span>
+                        <select id="page-layout">
+                            <option value="single">Single Page</option>
+                            <option value="double">Double Page</option>
+                            <option value="continuous">Continuous</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h4>Reading Preferences</h4>
+                    <div class="setting-item">
+                        <span>Font Size</span>
+                        <input type="range" id="font-size" class="custom-range" min="8" max="32" value="16">
+                    </div>
+                    <div class="setting-item">
+                        <span>Line Spacing</span>
+                        <input type="range" id="line-spacing" class="custom-range" min="1" max="3" step="0.1" value="1.5">
+                    </div>
+                    <div class="setting-item">
+                        <span>Margin Width</span>
+                        <input type="range" id="margin-width" class="custom-range" min="0" max="100" value="20">
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h4>Color Theme</h4>
+                    <div class="color-options">
+                        <button class="color-option" data-theme="light"></button>
+                        <button class="color-option" data-theme="sepia"></button>
+                        <button class="color-option" data-theme="dark"></button>
+                        <button class="color-option" data-theme="custom"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html> 
